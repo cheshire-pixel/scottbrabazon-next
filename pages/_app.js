@@ -1,7 +1,7 @@
 import '../styles/style.css';
 import { Provider } from '../components/Context';
 import Layout from '../components/Layout';
-import { useEffect } from 'react';
+import Analytics from '../components/Analytics';
 
 function MyApp({ Component, pageProps }) {
 
@@ -13,6 +13,7 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </Layout>
       </Provider>
+      <Analytics />
     </div>
   );
 }
