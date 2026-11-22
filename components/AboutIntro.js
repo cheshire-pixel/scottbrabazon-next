@@ -23,7 +23,7 @@ const AboutIntro = () => {
                    width="50"
                    height="50"
                 />
-               <p><strong>I&rsquo;m a frontend developer and designer passionate about creating websites that are not only visually striking but also highly functional.</strong> With expertise in HTML, CSS, JavaScript, and WordPress, I specialize in building custom websites that are fast, accessible, and intuitive to navigate. From crafting user-friendly designs to ensuring seamless performance, my goal is to deliver websites that not only look great but also help businesses thrive in today&rsquo;s digital world.
+               <p><strong>I&rsquo;m a frontend developer and designer passionate about creating websites that are not only visually striking but also highly functional.</strong> With expertise in HTML, CSS, JavaScript, and custom built CMS, I specialize in building custom websites that are fast, accessible, and intuitive to navigate. From crafting user-friendly designs to ensuring seamless performance, my goal is to deliver websites that not only look great but also help businesses thrive in today&rsquo;s digital world.
                 </p>
 
             </div>

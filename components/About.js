@@ -32,6 +32,8 @@ const About = ({match}) => {
 						<li>Next.js</li>
 						<li>Email</li>
 						<li>Bootstrap</li>
+						<li>Anthropic Claude</li>
+						<li>OpenAI Codex</li>
 					</ul>
 				</div>
 				<div className="platforms-col">
@@ -40,6 +42,7 @@ const About = ({match}) => {
 						<li>Contentful</li>
 						<li>SilverStripe CMS</li>
 						<li>Aurora Commerce</li>
+						<li>Shopify</li>
 						<li>Craft CMS</li>
 						<li>Wordpress</li>
 						<li>Monetate</li>

@@ -1,10 +1,12 @@
 import {Fragment} from 'react';
 import Head from 'next/head'
 import Work from '../components/Work';
+import { getProjects } from '../lib/projects';
+import { SITE_ORIGIN } from '../lib/seo';
 
-// scottbrabazon.com/projects
+const canonicalUrl = `${SITE_ORIGIN}/work`;
 
-export default function WorkPage() {
+export default function WorkPage({ projects }) {
   return (
 
     <Fragment>
@@ -20,7 +22,8 @@ export default function WorkPage() {
         <meta name="author" content="Scott Brabazon" />
         <meta property="og:title" content="Scott Brabazon | Web Design & Development Portfolio" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.scott-brabazon.com/work" />
+        <meta property="og:url" content={canonicalUrl} />
+        <link rel="canonical" href={canonicalUrl} />
         <meta 
           property="og:description" 
           content="Discover my latest web design and development projects, showcasing clean code, responsive designs, and user-friendly experiences." 
@@ -31,9 +34,14 @@ export default function WorkPage() {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      <Work />
+      <Work projects={projects} />
 
     </Fragment>
 
   )
+}
+
+export async function getStaticProps() {
+  const projects = await getProjects();
+  return { props: { projects }, revalidate: 3600 };
 }

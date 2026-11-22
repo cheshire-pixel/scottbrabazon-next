@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import useImageFadeIn from '../hooks/useImageFadeIn';
 
+const firstColumnSizes = 'auto, (min-width: 622px) 57vw, 100vw';
+const secondColumnSizes = 'auto, (min-width: 622px) 43vw, 100vw';
+
  const Montage = () => {
 
    useImageFadeIn();
@@ -15,7 +18,7 @@ import useImageFadeIn from '../hooks/useImageFadeIn';
                   alt="Everton" 
                   className="montage-image image-fade-in"
                   fill={true}
-                  sizes="100%, auto"
+                  sizes={firstColumnSizes}
                />
             </div>
             <div className="wcb">
@@ -24,7 +27,7 @@ import useImageFadeIn from '../hooks/useImageFadeIn';
                   alt="FIFA World Cup 2010" 
                   className="montage-image wcb image-fade-in"
                   fill={true}
-                  sizes="100%, auto"
+                  sizes={firstColumnSizes}
                />
             </div>
          </div>
@@ -35,7 +38,7 @@ import useImageFadeIn from '../hooks/useImageFadeIn';
                   alt="Manchester United" 
                   className="montage-image united image-fade-in"
                   fill={true}
-                  sizes="100%, auto"
+                  sizes={secondColumnSizes}
                />
             </div>
             <div className="ftctc">
@@ -44,7 +47,7 @@ import useImageFadeIn from '../hooks/useImageFadeIn';
                   alt="From the Caribbean 2 Coventry" 
                   className="montage-image ftc2c image-fade-in"
                   fill={true}
-                  sizes="100%, auto"
+                  sizes={secondColumnSizes}
                />
             </div>
             <div className="city">
@@ -53,7 +56,7 @@ import useImageFadeIn from '../hooks/useImageFadeIn';
                   alt="Manchester City" 
                   className="montage-image city image-fade-in"
                   fill={true}
-                  sizes="100%, auto"
+                  sizes={secondColumnSizes}
                />
             </div>
          </div>

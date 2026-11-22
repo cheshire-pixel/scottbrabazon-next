@@ -13,3 +13,16 @@
 		align-self: flex-end;
 	}
 }
+
+@media (prefers-reduced-motion: no-preference) {
+	.header h1 {
+		animation: header-title-enter 1s ease;
+	}
+}
+
+@keyframes header-title-enter {
+	from {
+		opacity: 0;
+		transform: translateX(5rem);
+	}
+}

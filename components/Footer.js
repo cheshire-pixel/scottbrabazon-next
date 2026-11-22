@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import useFadeRight from '../hooks/useFadeRight';
 
 const Footer = () => {
    const year = new Date().getFullYear();
@@ -34,6 +35,7 @@ const Footer = () => {
       // Cleanup function to disconnect observer on unmount
       return () => observer.disconnect();
    }, [router.pathname]); // Reset on page change
+   useFadeRight();
 
    return (
       <footer className="footer grid-container">

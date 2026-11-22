@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Set `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_KEY` in `.env.local` for local builds, and in the deployment environment for production. Home and Work build from the published Contentful projects and revalidate hourly.
+
 First, run the development server:
 
 ```bash

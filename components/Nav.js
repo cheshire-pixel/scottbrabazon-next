@@ -1,4 +1,3 @@
-import {Consumer} from './Context';
 import {Fragment} from 'react';
 import {useRouter} from 'next/router';
 import Link from 'next/link';

@@ -3,10 +3,20 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Lightbox from 'yet-another-react-lightbox';
 import PropTypes from 'prop-types';
+import { trackEvent } from '../lib/analytics';
 import useDrawLine from '../hooks/useDrawLine';
 import useFadeUp from '../hooks/useFadeUp';
 import 'yet-another-react-lightbox/styles.css';
 
+const featuredImageSizes = 'auto, min(75vw, 31.25rem)';
+// Work spans 20 of the grid's 22 main tracks, each sized with minmax(2%, 5rem).
+const workGridWidth = 'clamp(40vw, 90.91vw, 100rem)';
+const workImageSizes = [
+  'auto',
+  `(min-width: 1200px) calc((${workGridWidth} - 4rem) / 3)`,
+  `(min-width: 768px) calc((${workGridWidth} - 2rem) / 2)`,
+  workGridWidth,
+].join(', ');
 
 const WorkThumbnail = ({ name, href, img, lightbox, index, description, tag }) => {
 
@@ -19,7 +29,7 @@ const WorkThumbnail = ({ name, href, img, lightbox, index, description, tag }) =
   const [photoIndex, setPhotoIndex] = useState(0);
 
   const handleOpenLightbox = (event, idx, lb) => {
-      gtag('event', 'click', {
+      trackEvent('click', {
         event_category: 'User Interaction',
         event_label: name,
         event_action: 'click_on_project'
@@ -57,7 +67,7 @@ const WorkThumbnail = ({ name, href, img, lightbox, index, description, tag }) =
             onClick={(e) => handleOpenLightbox(e, index, lightbox)}
             className="project-thumbnail"
             fill={true}
-            sizes="100%, auto"
+            sizes={isWorkPage ? workImageSizes : featuredImageSizes}
           />
         </div>
       </a>

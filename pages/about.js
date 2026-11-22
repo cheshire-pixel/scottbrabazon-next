@@ -1,8 +1,9 @@
 import {Fragment} from 'react';
 import Head from 'next/head'
 import About from '../components/About';
+import { SITE_ORIGIN } from '../lib/seo';
 
-// scottbrabazon.com/projects
+const canonicalUrl = `${SITE_ORIGIN}/about`;
 
 export default function AboutPage() {
   return (
@@ -20,7 +21,8 @@ export default function AboutPage() {
         <meta name="author" content="Scott Brabazon" />
         <meta property="og:title" content="About Scott Brabazon | Frontend Developer & Designer" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.scott-brabazon.com/about" />
+        <meta property="og:url" content={canonicalUrl} />
+        <link rel="canonical" href={canonicalUrl} />
         <meta 
           property="og:description" 
           content="With over two decades of experience, I help businesses elevate their digital presence through expert frontend development and design." 
