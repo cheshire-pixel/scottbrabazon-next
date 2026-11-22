@@ -34,3 +34,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+### Refresh projects when you publish in Contentful
+
+1. Generate a webhook secret with `openssl rand -hex 32` and set it as `CONTENTFUL_REVALIDATION_SECRET` in the Vercel Production environment before deploying.
+2. In Contentful's webhook settings, add a POST webhook to `https://www.scott-brabazon.com/api/revalidate`. Use the default payload and add a secret header named `Authorization` with the value `Bearer YOUR_SECRET`, using the same secret as in Vercel.
+3. Select the **Publish** and **Unpublish** events for **Entries** and **Assets** in the environment that powers the live site. Once deployed, publish a project and check the webhook activity for a `200` response.
+
+The webhook waits for the published revision to reach Contentful's delivery API, then refreshes Home and Work. Hourly revalidation provides a fallback if webhook delivery fails.
