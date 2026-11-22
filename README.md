@@ -20,6 +20,12 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
+## Project clicks in Google Analytics
+
+Home and Work send `project_click` when a visitor activates a project thumbnail or its **View project** link. The event includes `project_name`, `project_placement` (Featured Projects or Work), and `click_target` (thumbnail or View project).
+
+In the portfolio's GA4 property, open **Admin → Data display → Custom definitions**. Create an event-scoped dimension named **Project name** with event parameter `project_name`. In **Explore**, create a free-form report with **Project name** as the rows, **Event count** as the value, and a filter where **Event name** exactly matches `project_click`. Sort by **Event count** to see the most clicked projects.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

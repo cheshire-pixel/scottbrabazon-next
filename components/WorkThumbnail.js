@@ -28,16 +28,17 @@ const WorkThumbnail = ({ name, href, img, lightbox, index, description, tag }) =
   const [isOpen, setIsOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
 
-  const handleOpenLightbox = (event, idx, lb) => {
-      trackEvent('click', {
-        event_category: 'User Interaction',
-        event_label: name,
-        event_action: 'click_on_project'
-      });
-    if (lb && lb.items && lb.items.length > 0) {
+  const handleProjectClick = (event, clickTarget) => {
+    trackEvent('project_click', {
+      project_name: name,
+      project_placement: isWorkPage ? 'work' : 'featured_home',
+      click_target: clickTarget,
+    });
+
+    if (lightbox?.items?.length > 0) {
       event.preventDefault();
       setIsOpen(true);
-      setPhotoIndex(idx);
+      setPhotoIndex(index);
     }
   };
 
@@ -58,13 +59,12 @@ const WorkThumbnail = ({ name, href, img, lightbox, index, description, tag }) =
   return (
 
     <div className={`project ${isWorkPage ? 'fade-up' : ''}`}>
-      <a href={href || '#'} target="_blank" rel="noreferrer">
+      <a href={href || '#'} target="_blank" rel="noreferrer" onClick={(event) => handleProjectClick(event, 'thumbnail')}>
         <div className="project-image-container">
           <Image
             src={img}
             alt={name}
             loading="lazy"
-            onClick={(e) => handleOpenLightbox(e, index, lightbox)}
             className="project-thumbnail"
             fill={true}
             sizes={isWorkPage ? workImageSizes : featuredImageSizes}
@@ -77,7 +77,7 @@ const WorkThumbnail = ({ name, href, img, lightbox, index, description, tag }) =
        </div>
        <div className="project-description">{description}</div>
          <a
-            onClick={(e) => handleOpenLightbox(e, index, lightbox)}
+            onClick={(event) => handleProjectClick(event, 'view_project')}
             href={href || '#'}
             target="_blank"
             rel="noreferrer"
